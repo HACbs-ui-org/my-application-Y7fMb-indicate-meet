@@ -1,0 +1,23 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: nodeapp-a6mq
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: nodeapp-a6mq
+    app.kubernetes.io/part-of: my-application
+  name: nodeapp-a6mq
+  namespace: karthik
+spec:
+  port:
+    targetPort: 8080
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: nodeapp-a6mq
+    weight: 100
+status: {}
